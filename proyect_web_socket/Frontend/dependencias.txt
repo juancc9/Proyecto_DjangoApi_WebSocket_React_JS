@@ -1,0 +1,9 @@
+
+
+
+
+npx heroui-cli@latest init -t vite nombre_proyecto
+npm install
+npm install react-toastify
+npm install react-router-dom
+npm install @types/react-router-dom

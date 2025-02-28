@@ -1,0 +1,135 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "json.schemas": [
+        
+    ],
+    "python.analysis.extraPaths": ["./apps"]
+}
+
+UPDATE "Trazabilidad_tipo_especie"
+SET "tipo" = 'tomate green zebra',
+    "descripcion" = 'tomate color verde con manchas de diferentes tonos',
+    "tiempo_crecimiento" = 3
+WHERE id = 2;
+C:\Program Files\Memurai\
+
+ejecutar server:
+daphne -p 8000 APIRest.asgi:application
+python actualizador.py
+python script\actualizador.py
+
+en Shell:
+from script.actualizador import actualizar_sensores
+actualizar_sensores()
+
+
+$ netstat -ano | findstr :8000
+docker run -d --name redis-container -p 6379:6379 redis
+docker info
+manejo de archivos estaticos
+python manage.py collectstatic
+entorno\Scripts\actívate
+
+INSERT INTO "IoT_sensor" ("nombre_sensor", "tipo_sensor", "unidad_medida", "cultivo", "ubicacion", "valor_min", "valor_max")
+VALUES ('Sensor', 'Digital', 'Kg', 'Tomate', '01', 02, 0.5);
+
+
+
+
+from django.db import models
+
+class Sensor_iot(models.Model):
+    nombre_sensor = models.CharField(max_length=50)
+    tipo_sensor = models.CharField(max_length=50)
+    unidad_medida = models.CharField(max_length=50)
+    ubicacion = models.FloatField()
+    valor_min = models.FloatField()
+    valor_max = models.FloatField()
+    def __str__(self):
+        return str(self.nombre_sensor)
+
+
+
+'Default nombre_sensor'
+
+
+	PRUEBA
+
+python manage.py shell
+from asgiref.sync import async_to_sync
+from channels.layers import get_channel_layer
+
+channel_layer = get_channel_layer()
+
+async_to_sync(channel_layer.group_send)(
+    "sensor_updates",  # Asegúrate de que el WebSocket está escuchando este grupo
+    {
+        "type": "send_message",  # Este tipo debe coincidir con el manejador en tu Consumer
+        "message": "🔴 Prueba manual desde Django",
+    }
+)
+
+
+PRUEBA 2 EN SHE
+
+from apps.IoT.models import Sensor
+from django.db.models.signals import post_save
+
+for receiver in post_save._live_receivers(Sensor):
+    print(receiver)
+
+
+
+from apps.IoT.models import Sensor
+from django.db.models.signals import post_save
+
+print(post_save._live_receivers(Sensor))
+
+
+
+from apps.IoT.models import Sensor
+
+sensor = Sensor(fk_bancal=4, fk_tipo_sensor=1, fk_configuracion=1)
+Sensor.save()  
+
+
+from apps.IoT.models import Sensor
+print(type(Sensor))  
+
+# Debe devolver <class 'django.db.models.Model'>
+
+
+
+
+consultas:
+
+insert into  "IoT_configuracion" ("tipo_cultivo","tipo_sensor","valor_min","valor_max")
+values ('Tomate','Digital',0.4,1.4)
+
+insert into "Trazabilidad_tipo_especie" ("tipo","descripcion","tiempo_crecimiento")
+values ('tomate green zebra','tomate color verde con manchas de diferentes tonos',3)
+
+insert into  "Trazabilidad_especie" ("nombre","fk_tipo_especie_id")
+values ('tomate',1)
+
+insert into  "Trazabilidad_lote" ("nombre","descripcion","ubicacion")
+values ('lote01','Este lote contiene cultivo de tomate, terreno en zona humeda',5.410)
+
+insert into "Trazabilidad_semillero" ("nombre_semilla","fecha_siembra","fecha_estimada","unidades","fk_especie_id","fk_lote_id")
+values ('semilla tomate','10/4/2025','30/6/2025',20,1,1)
+
+insert into  "Trazabilidad_cultivo" ("nombre","descripcion","cantidad","fecha_siembra","fk_especie_id","fk_semillero_id")
+values ('Tomate','cultivo de tomate green zebra',30,'20/5/2025',1,3)
+
+insert into "Trazabilidad_bancal" ("nombre","descripcion","ubicacion","fk_cultivo_id","fk_lote_id")
+values ('bancal_01','este bancal contiene tomate','6.200',1,1)
+
+insert into "IoT_sensor" ("id",fk_bancal_id","fk_configuracion_id","fk_tipo_sensor_id")
+values (1,1,1)
+
+
+
+  { id: 15, label: "Inventario", path: "/inventario", icon: <FaBox /> },
