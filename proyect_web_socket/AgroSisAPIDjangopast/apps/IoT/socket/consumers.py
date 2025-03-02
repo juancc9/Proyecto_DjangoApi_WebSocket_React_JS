@@ -15,12 +15,3 @@ class SensorConsumer(AsyncWebsocketConsumer):
         message = event["message"]
         await self.send(text_data=json.dumps({"message": message}))
         print(f"📩 Mensaje enviado al WebSocket: {message}")
-
-
-    async def sensor_actualizado(self, event):
-        await self.send(text_data=json.dumps({
-            "sensor_id": event["sensor_id"],
-            "valor_min": event["valor_min"],
-            "valor_max": event["valor_max"],
-        }))
-

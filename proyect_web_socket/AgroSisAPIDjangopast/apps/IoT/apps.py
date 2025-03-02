@@ -7,6 +7,10 @@ class IotConfig(AppConfig):
 
     def ready(self):
         from apps.IoT.models import Sensor
-        from apps.IoT.socket.signals import model_post_save  # Importar la señal directamente
-        post_save.connect(model_post_save, sender=Sensor)  # Conectar la señal manualmente
-        print("✅ Señal post_save conectada correctamente")
+        from apps.IoT.socket.signals import send_ws_message_on_create, send_ws_message_on_update  # Importar las señales
+
+        # Conectar las señales para POST y PUT
+        post_save.connect(send_ws_message_on_create, sender=Sensor)
+        post_save.connect(send_ws_message_on_update, sender=Sensor)
+
+        print("✅ Señales post_save conectadas correctamente")

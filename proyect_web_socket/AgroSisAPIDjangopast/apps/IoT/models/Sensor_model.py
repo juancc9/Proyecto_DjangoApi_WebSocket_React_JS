@@ -1,14 +1,11 @@
 from django.db import models
-from apps.Trazabilidad.models.Cultivo import Cultivo
+from .Tipo_Sensor_model import Tipo_Sensor
+from .Configuracion_model import Configuracion
+from apps.Trazabilidad.models.Bancal import Bancal
 
 class Sensor(models.Model):
-    nombre_sensor = models.CharField(max_length=50, default='Default Nombre Sensor')
-    tipo_sensor = models.CharField(max_length=50, default='Default Tipo Sensor')
-    cultivo = models.CharField(max_length=50, default='Default cultivo')
-    unidad_medida = models.CharField(max_length=50, default='Default unidad_medida')
-    ubicacion = models.FloatField(default=0.0)
-    valor_min = models.FloatField(default=0.0)
-    valor_max = models.FloatField(default=0.0)
-
+    fk_bancal = models.ForeignKey(Bancal,on_delete=models.SET_NULL,null=True)
+    fk_tipo_sensor = models.ForeignKey(Tipo_Sensor,on_delete=models.SET_NULL,null=True)
+    fk_configuracion = models.ForeignKey(Configuracion,on_delete=models.SET_NULL,null=True)
     def __str__(self):
-        return str(self.nombre_sensor)
+        return str(self.fk_tipo_sensor) + str(self.fk_bancal)
