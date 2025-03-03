@@ -10,10 +10,9 @@ def send_ws_message_on_create(sender, instance, created, **kwargs):
     if created:  # Solo se ejecuta en la creación (POST)
         channel_layer = get_channel_layer()
         sensor_details = {
-            "action": "created",
-            "sensor": str(instance.fk_tipo_sensor),
-            "bancal": str(instance.fk_bancal),
-            "configuracion": str(instance.fk_configuracion)
+            "Sensor registrado:": str(instance.fk_tipo_sensor),
+            "Ubicacion:": str(instance.fk_bancal),
+            "Cultivo": str(instance.fk_cultivo)
         }
         async_to_sync(channel_layer.group_send)(
             "sensor_updates",
@@ -29,10 +28,10 @@ def send_ws_message_on_update(sender, instance, created, **kwargs):
     if not created:  # Solo se ejecuta en la actualización (PUT)
         channel_layer = get_channel_layer()
         sensor_details = {
-            "action": "updated",
-            "sensor ACT": str(instance.fk_tipo_sensor),
-            "bancal ACT": str(instance.fk_bancal),
-            "configuracion ACT": str(instance.fk_configuracion)
+            "Sensor": str(instance.fk_tipo_sensor),
+            "Ubicacion": str(instance.fk_bancal),
+            "Cultivo": str(instance.fk_cultivo),
+            "Valores obtenidos:": str(instance.fk_configuracion)
         }
         async_to_sync(channel_layer.group_send)(
             "sensor_updates",

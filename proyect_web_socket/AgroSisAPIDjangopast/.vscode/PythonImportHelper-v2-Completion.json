@@ -594,6 +594,54 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -1747,6 +1795,14 @@
         "documentation": {}
     },
     {
+        "label": "Bancal",
+        "importPath": "apps.Trazabilidad.models.Bancal",
+        "description": "apps.Trazabilidad.models.Bancal",
+        "isExtraImport": true,
+        "detail": "apps.Trazabilidad.models.Bancal",
+        "documentation": {}
+    },
+    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -1812,6 +1868,14 @@
         "documentation": {}
     },
     {
+        "label": "Configuracion",
+        "importPath": "apps.IoT.models",
+        "description": "apps.IoT.models",
+        "isExtraImport": true,
+        "detail": "apps.IoT.models",
+        "documentation": {}
+    },
+    {
         "label": "Sensor",
         "importPath": "apps.IoT.models",
         "description": "apps.IoT.models",
@@ -1841,15 +1905,6 @@
         "description": "channels.layers",
         "isExtraImport": true,
         "detail": "channels.layers",
-        "documentation": {}
-    },
-    {
-        "label": "sys",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "sys",
-        "description": "sys",
-        "detail": "sys",
         "documentation": {}
     },
     {
@@ -1889,6 +1944,32 @@
         "documentation": {}
     },
     {
+        "label": "django.utils.timezone",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
         "label": "Inventario",
         "importPath": "apps.Inventario.models.Inventario",
         "description": "apps.Inventario.models.Inventario",
@@ -1903,15 +1984,6 @@
         "importPath": "django.contrib.auth.validators",
         "description": "django.contrib.auth.validators",
         "detail": "django.contrib.auth.validators",
-        "documentation": {}
-    },
-    {
-        "label": "django.utils.timezone",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.utils.timezone",
-        "description": "django.utils.timezone",
-        "detail": "django.utils.timezone",
         "documentation": {}
     },
     {
@@ -2623,11 +2695,38 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.IoT.migrations.0005_remove_sensor_cultivo_remove_sensor_nombre_sensor_and_more",
+        "description": "apps.IoT.migrations.0005_remove_sensor_cultivo_remove_sensor_nombre_sensor_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('IoT', '0004_sensor_cultivo'),\n        ('Trazabilidad', '0002_initial'),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name='sensor',\n            name='cultivo',\n        ),",
+        "detail": "apps.IoT.migrations.0005_remove_sensor_cultivo_remove_sensor_nombre_sensor_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.IoT.migrations.0006_sensor_fk_cultivo",
+        "description": "apps.IoT.migrations.0006_sensor_fk_cultivo",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('IoT', '0005_remove_sensor_cultivo_remove_sensor_nombre_sensor_and_more'),\n        ('Trazabilidad', '0002_initial'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sensor',\n            name='fk_cultivo',\n            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='Trazabilidad.cultivo'),",
+        "detail": "apps.IoT.migrations.0006_sensor_fk_cultivo",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "apps.IoT.migrations.0007_sensor_medicion_alter_configuracion_valor_max_and_more",
+        "description": "apps.IoT.migrations.0007_sensor_medicion_alter_configuracion_valor_max_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('IoT', '0006_sensor_fk_cultivo'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='sensor',\n            name='medicion',\n            field=models.DecimalField(decimal_places=2, default=0.0, max_digits=10),\n        ),",
+        "detail": "apps.IoT.migrations.0007_sensor_medicion_alter_configuracion_valor_max_and_more",
+        "documentation": {}
+    },
+    {
         "label": "Configuracion",
         "kind": 6,
         "importPath": "apps.IoT.models.Configuracion_model",
         "description": "apps.IoT.models.Configuracion_model",
-        "peekOfCode": "class Configuracion(models.Model):\n    tipo_cultivo = models.CharField(max_length=100)\n    tipo_sensor = models.CharField(max_length=100)\n    valor_min = models.FloatField()\n    valor_max = models.FloatField()\n    def __str__(self):\n        return str(self.tipo_sensor) + str(self.tipo_cultivo)",
+        "peekOfCode": "class Configuracion(models.Model):\n    tipo_cultivo = models.CharField(max_length=100)\n    tipo_sensor = models.CharField(max_length=100)\n    valor_min =  models.DecimalField(max_digits=10, decimal_places=2) \n    valor_max =  models.DecimalField(max_digits=10, decimal_places=2) \n    def __str__(self):\n        return str(self.valor_min) + str(self.valor_max)",
         "detail": "apps.IoT.models.Configuracion_model",
         "documentation": {}
     },
@@ -2636,7 +2735,7 @@
         "kind": 6,
         "importPath": "apps.IoT.models.Sensor_model",
         "description": "apps.IoT.models.Sensor_model",
-        "peekOfCode": "class Sensor(models.Model):\n    nombre_sensor = models.CharField(max_length=50, default='Default Nombre Sensor')\n    tipo_sensor = models.CharField(max_length=50, default='Default Tipo Sensor')\n    cultivo = models.CharField(max_length=50, default='Default cultivo')\n    unidad_medida = models.CharField(max_length=50, default='Default unidad_medida')\n    ubicacion = models.FloatField(default=0.0)\n    valor_min = models.FloatField(default=0.0)\n    valor_max = models.FloatField(default=0.0)\n    def __str__(self):\n        return str(self.nombre_sensor)",
+        "peekOfCode": "class Sensor(models.Model):\n    fk_bancal = models.ForeignKey(Bancal,on_delete=models.SET_NULL,null=True)\n    fk_tipo_sensor = models.ForeignKey(Tipo_Sensor,on_delete=models.SET_NULL,null=True)\n    fk_configuracion = models.ForeignKey(Configuracion,on_delete=models.SET_NULL,null=True)\n    fk_cultivo = models.ForeignKey(Cultivo,on_delete=models.SET_NULL,null=True)\n    medicion = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)\n    def __str__(self):\n        return str(self.fk_tipo_sensor) + str(self.fk_bancal) + str(self.fk_cultivo) + str(self.fk_configuracion) + str(self.medicion)",
         "detail": "apps.IoT.models.Sensor_model",
         "documentation": {}
     },
@@ -2722,11 +2821,20 @@
         "documentation": {}
     },
     {
-        "label": "model_post_save",
+        "label": "send_ws_message_on_create",
         "kind": 2,
         "importPath": "apps.IoT.socket.signals",
         "description": "apps.IoT.socket.signals",
-        "peekOfCode": "def model_post_save(sender, instance, **kwargs):\n    print(f\"🔴 Señal ejecutada para el sensor {instance.id}\")  # Agregamos un mensaje para verificar\n    channel_layer = get_channel_layer()\n    async_to_sync(channel_layer.group_send)(\n        \"sensor_updates\",  \n        {\n            \"type\": \"send_message\",\n            \"message\": f\"El {instance.nombre_sensor} en el cultivo de{instance.cultivo}, ubicado en {instance.ubicacion}ha sido actualizado\",\n        }\n    )",
+        "peekOfCode": "def send_ws_message_on_create(sender, instance, created, **kwargs):\n    \"\"\" Envía un mensaje al WebSocket cuando se crea un nuevo sensor \"\"\"\n    if created:  # Solo se ejecuta en la creación (POST)\n        channel_layer = get_channel_layer()\n        sensor_details = {\n            \"Sensor registrado:\": str(instance.fk_tipo_sensor),\n            \"Ubicacion:\": str(instance.fk_bancal),\n            \"Cultivo\": str(instance.fk_cultivo)\n        }\n        async_to_sync(channel_layer.group_send)(",
+        "detail": "apps.IoT.socket.signals",
+        "documentation": {}
+    },
+    {
+        "label": "send_ws_message_on_update",
+        "kind": 2,
+        "importPath": "apps.IoT.socket.signals",
+        "description": "apps.IoT.socket.signals",
+        "peekOfCode": "def send_ws_message_on_update(sender, instance, created, **kwargs):\n    \"\"\" Envía un mensaje al WebSocket cuando se actualiza un sensor \"\"\"\n    if not created:  # Solo se ejecuta en la actualización (PUT)\n        channel_layer = get_channel_layer()\n        sensor_details = {\n            \"Sensor\": str(instance.fk_tipo_sensor),\n            \"Ubicacion\": str(instance.fk_bancal),\n            \"Cultivo\": str(instance.fk_cultivo),\n            \"Valores obtenidos:\": str(instance.fk_configuracion)\n        }",
         "detail": "apps.IoT.socket.signals",
         "documentation": {}
     },
@@ -2762,8 +2870,35 @@
         "kind": 6,
         "importPath": "apps.IoT.apps",
         "description": "apps.IoT.apps",
-        "peekOfCode": "class IotConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'apps.IoT'\n    def ready(self):\n        from apps.IoT.models import Sensor\n        from apps.IoT.socket.signals import model_post_save  # Importar la señal directamente\n        post_save.connect(model_post_save, sender=Sensor)  # Conectar la señal manualmente\n        print(\"✅ Señal post_save conectada correctamente\")",
+        "peekOfCode": "class IotConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'apps.IoT'\n    def ready(self):\n        from apps.IoT.models import Sensor\n        from apps.IoT.socket.signals import send_ws_message_on_create, send_ws_message_on_update  # Importar las señales\n        # Conectar las señales para POST y PUT\n        post_save.connect(send_ws_message_on_create, sender=Sensor)\n        post_save.connect(send_ws_message_on_update, sender=Sensor)\n        print(\"✅ Señales post_save conectadas correctamente\")",
         "detail": "apps.IoT.apps",
+        "documentation": {}
+    },
+    {
+        "label": "obtener_sensores",
+        "kind": 2,
+        "importPath": "apps.script.actualizador",
+        "description": "apps.script.actualizador",
+        "peekOfCode": "def obtener_sensores():\n    print(\"Obteniendo sensores\")\n    \"\"\" Obtiene todos los sensores registrados en la base de datos \"\"\"\n    return list(Sensor.objects.all())\n@sync_to_async\ndef guardar_medicion(sensor, valor):\n    print(\"Guardando medicion\")\n    \"\"\" Guarda el valor medido en el sensor \"\"\"\n    sensor.medicion = valor\n    sensor.save()",
+        "detail": "apps.script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "guardar_medicion",
+        "kind": 2,
+        "importPath": "apps.script.actualizador",
+        "description": "apps.script.actualizador",
+        "peekOfCode": "def guardar_medicion(sensor, valor):\n    print(\"Guardando medicion\")\n    \"\"\" Guarda el valor medido en el sensor \"\"\"\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():\n    print(\"Enviando datos\")\n    \"\"\" Simula el envío de datos de sensores a WebSockets \"\"\"\n    uri = \"ws://localhost:8000/ws/sensores/\"",
+        "detail": "apps.script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "run",
+        "kind": 2,
+        "importPath": "apps.script.actualizador",
+        "description": "apps.script.actualizador",
+        "peekOfCode": "def run():\n    print(\"Ejecucion del script\")\n    \"\"\" Ejecuta el simulador correctamente con Django \"\"\"\n    loop = asyncio.get_event_loop()\n    loop.run_until_complete(send_random_data())",
+        "detail": "apps.script.actualizador",
         "documentation": {}
     },
     {
@@ -2816,7 +2951,7 @@
         "kind": 6,
         "importPath": "apps.Trazabilidad.models.Bancal",
         "description": "apps.Trazabilidad.models.Bancal",
-        "peekOfCode": "class Bancal(models.Model):\n    nombre = models.CharField(max_length=100)\n    descripcion = models.TextField(max_length=500)\n    fk_lote = models.ForeignKey(Lote,on_delete=models.SET_NULL,null=True)\n    fk_cultivo = models.ForeignKey(Cultivo,on_delete=models.SET_NULL,null=True)\n    ubicacion = models.CharField(max_length=50)\n    def __str__(self):\n        return self.nombre",
+        "peekOfCode": "class Bancal(models.Model):\n    nombre = models.CharField(max_length=100)\n    descripcion = models.TextField(max_length=500)\n    fk_lote = models.ForeignKey(Lote,on_delete=models.SET_NULL,null=True)\n    fk_cultivo = models.ForeignKey(Cultivo,on_delete=models.SET_NULL,null=True)\n    ubicacion = models.CharField(max_length=50)\n    def __str__(self):\n        return self.ubicacion",
         "detail": "apps.Trazabilidad.models.Bancal",
         "documentation": {}
     },

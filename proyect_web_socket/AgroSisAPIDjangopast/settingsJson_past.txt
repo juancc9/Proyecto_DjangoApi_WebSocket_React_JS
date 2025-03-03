@@ -1,13 +1,4 @@
-{
-    "workbench.colorTheme": "Default High Contrast",
-    "security.workspace.trust.untrustedFiles": "open",
-    "files.autoSave": "afterDelay",
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "json.schemas": [
-        
-    ],
-    "python.analysis.extraPaths": ["./apps"]
-}
+
 
 UPDATE "Trazabilidad_tipo_especie"
 SET "tipo" = 'tomate green zebra',
@@ -90,46 +81,19 @@ print(post_save._live_receivers(Sensor))
 
 
 
-from apps.IoT.models import Sensor
 
-sensor = Sensor(fk_bancal=4, fk_tipo_sensor=1, fk_configuracion=1)
-Sensor.save()  
-
+PRUEBAS EN CMD - BASH
 
 from apps.IoT.models import Sensor
 print(type(Sensor))  
 
-# Debe devolver <class 'django.db.models.Model'>
+
+python ruta/del/script.py
+
+python manage.py runscript nombre_del_script
 
 
 
 
-consultas:
-
-insert into  "IoT_configuracion" ("tipo_cultivo","tipo_sensor","valor_min","valor_max")
-values ('Tomate','Digital',0.4,1.4)
-
-insert into "Trazabilidad_tipo_especie" ("tipo","descripcion","tiempo_crecimiento")
-values ('tomate green zebra','tomate color verde con manchas de diferentes tonos',3)
-
-insert into  "Trazabilidad_especie" ("nombre","fk_tipo_especie_id")
-values ('tomate',1)
-
-insert into  "Trazabilidad_lote" ("nombre","descripcion","ubicacion")
-values ('lote01','Este lote contiene cultivo de tomate, terreno en zona humeda',5.410)
-
-insert into "Trazabilidad_semillero" ("nombre_semilla","fecha_siembra","fecha_estimada","unidades","fk_especie_id","fk_lote_id")
-values ('semilla tomate','10/4/2025','30/6/2025',20,1,1)
-
-insert into  "Trazabilidad_cultivo" ("nombre","descripcion","cantidad","fecha_siembra","fk_especie_id","fk_semillero_id")
-values ('Tomate','cultivo de tomate green zebra',30,'20/5/2025',1,3)
-
-insert into "Trazabilidad_bancal" ("nombre","descripcion","ubicacion","fk_cultivo_id","fk_lote_id")
-values ('bancal_01','este bancal contiene tomate','6.200',1,1)
-
-insert into "IoT_sensor" ("id",fk_bancal_id","fk_configuracion_id","fk_tipo_sensor_id")
-values (1,1,1)
 
 
-
-  { id: 15, label: "Inventario", path: "/inventario", icon: <FaBox /> },
