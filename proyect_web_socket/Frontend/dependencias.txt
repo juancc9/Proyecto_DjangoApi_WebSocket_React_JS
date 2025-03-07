@@ -1,9 +1,52 @@
 
-
-
-
 npx heroui-cli@latest init -t vite nombre_proyecto
 npm install
 npm install react-toastify
 npm install react-router-dom
 npm install @types/react-router-dom
+npm install @tanstack/react-query
+
+impiar cache
+rm -rf node_modules/.vite
+
+
+
+Explicación:
+
+📂 1️⃣ hooks/ → Lógica reutilizable 📌
+Esta carpeta almacena custom hooks que encapsulan lógica reutilizable.
+
+¿Para qué sirve?
+
+Evita duplicar código en múltiples componentes.
+Facilita la separación de lógica y presentación.
+Mejora la organización y mantenibilidad del código.
+Ejemplo:
+
+useFetchSensors.ts → Un hook que obtiene sensores desde la API usando useQuery.
+useAuth.ts → Un hook que maneja la autenticación del usuario.
+📂 2️⃣ types/ → Definiciones de TypeScript 📝
+Esta carpeta contiene interfaces y tipos para mantener el tipado claro y consistente en todo el proyecto.
+
+¿Para qué sirve?
+
+Define estructuras de datos utilizadas en la app.
+Ayuda a detectar errores en tiempo de desarrollo.
+Facilita la integración con APIs al tener tipos bien definidos.
+Ejemplo:
+
+sensorTypes.ts → Define la estructura de los sensores (id, nombre, valor).
+userTypes.ts → Define la estructura de los usuarios (id, email, role).
+📂 3️⃣ pages/ → Vistas o páginas de la app 🖥️
+Aquí van todos los componentes que representan páginas completas en la app (por ejemplo, /login, /pricing, /about).
+
+¿Para qué sirve?
+
+Separa cada página en un archivo individual.
+Facilita la navegación usando React Router.
+Permite que cada página tenga su propia lógica sin mezclarla con otros componentes.
+Ejemplo:
+
+index.tsx → Página principal.
+sensor_humedad.tsx → Página para visualizar los sensores de humedad.
+login.tsx → Página de inicio de sesión.

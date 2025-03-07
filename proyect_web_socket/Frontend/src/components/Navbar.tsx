@@ -23,15 +23,15 @@ import { GiProcessor } from "react-icons/gi";
 
 const menuItems = [
   { id: 1, label: "Inicio", path: "/", icon: <FaHome /> },
-  { id: 2, label: "login", path: "/login", icon: <FaUser /> },
+  { id: 2, label: "Semillero", path: "/semilleros", icon: < FaCalendarAlt/> },
   {
     id: 3,
     label: "IoT",
     icon: <GiProcessor />,
     subItems: [
-      { id: 4, label: "Evapotranspiración", path: "/iot/evapotranspiracion", icon: <FaCloudRain /> },
+      { id: 4, label: "Tipos de sensor", path: "/iot/tipo-sensor", icon: <FaCloudRain /> },
       { id: 5, label: "Sensores", path: "/iot/sensores", icon: <FaTachometerAlt /> },
-      { id: 6, label: "Humedad", path: "/iot/humedad", icon: <FaTemperatureHigh /> },
+      { id: 6, label: "Configuracion", path: "/iot/configuracion", icon: <FaTemperatureHigh /> },
     ],
   },
   {
@@ -48,8 +48,8 @@ const menuItems = [
     ],
   },
 
-
-  { id: 14, label: "Calendario", path: "/calendario", icon: <FaCalendarAlt /> },
+  
+  { id: 14, label: "Usuarios", path: "/usuarios", icon: < FaUser/> },
 
   { id: 15, label: "Mapa", path: "/mapa", icon: <FaMapMarkerAlt /> },
   { id: 16, label: "Finanzas", path: "/finanzas", icon: <FaDollarSign /> },

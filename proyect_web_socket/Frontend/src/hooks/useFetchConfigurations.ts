@@ -1,38 +1,39 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 
-// Definición de la función para obtener las configuraciones
-const fetchConfigurations = async () => {
+const postConfiguration = async (configData: {
+  tipo_cultivo: string;
+  tipo_sensor: string;
+  valor_min: number;
+  valor_max: number;
+}) => {
   const token = localStorage.getItem("token");
 
   const response = await fetch("http://127.0.0.1:8000/api/configuracion/", {
-    method: "GET",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify(configData),
   });
 
   if (!response.ok) {
-    throw new Error("Error al obtener configuraciones");
+    const errorData = await response.json();
+    throw new Error(errorData.detail || "Error al registrar la configuración");
   }
 
-  const data = await response.json();
-  console.log("Configuraciones recibidas:", data); // 🔍 Verifica que sea un array
-
-  if (!Array.isArray(data)) {
-    throw new Error("La respuesta de la API no es un array.");
-  }
-
-  return data;
+  return response.json();
 };
 
-// Exportar la función useFetchConfigurations correctamente
-export const useFetchConfigurations = () => {
-  return useQuery({
-    queryKey: ["configurations"],
-    queryFn: fetchConfigurations,
-    staleTime: 1000 * 60 * 5, // 5 minutos antes de volver a hacer fetch
-    cacheTime: 1000 * 60 * 10, // 10 minutos en caché
-    retry: 2, // Reintentar 2 veces en caso de error
+export const usePostConfiguration = () => {
+  return useMutation({
+    mutationFn: postConfiguration,
+    onSuccess: (data) => {
+      toast.success(`✅ Sensor "${data.tipo_sensor}" registrado correctamente`);
+    },
+    onError: (error) => {
+      toast.error(`❌ ${error.message}`);
+    },
   });
 };
