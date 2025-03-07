@@ -1,45 +1,65 @@
 import os
-import sys
 import django
 import random
 import asyncio
 import json
 import websockets
+from django.utils.timezone import now
 from asgiref.sync import sync_to_async
+import sys
 
-# Asegurar que el directorio del proyecto esté en sys.path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# Agregar el directorio raíz del proyecto Django a sys.path
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath("APIRest")))
+sys.path.append(BASE_DIR)
 
-# Configuración de Django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'APIRest.settings')
+# Configurar Django
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "APIRest.settings")
 django.setup()
 
 from apps.IoT.models import Sensor
+from apps.IoT.models import Configuracion
 
-async def enviar_websocket(sensor_id, valor_min, valor_max):
-    """Envía datos de sensores al WebSocket"""
+@sync_to_async
+def obtener_sensores():
+    print("Obteniendo sensores...")
+    return list(Sensor.objects.select_related("fk_configuracion").all())
+
+@sync_to_async
+def guardar_medicion(sensor, valor):
+    print(f"Guardando medición para el sensor {sensor.id}: {valor}")
+    sensor.medicion = valor
+    sensor.save()
+    return sensor
+
+async def send_random_data():
+    print("Enviando datos a WebSocket...")
     uri = "ws://localhost:8000/ws/sensores/"
     async with websockets.connect(uri) as websocket:
-        data = {
-            "sensor_id": sensor_id,
-            "valor_min": valor_min,
-            "valor_max": valor_max
-        }
-        await websocket.send(json.dumps(data))
-        print(f"📡 WebSocket enviado: {data}")
+        while True:
+            sensores = await obtener_sensores()
+            if sensores:
+                sensor = random.choice(sensores)
+                config = sensor.fk_configuracion
+                
+                if config:
+                    valor_min = float(config.valor_min)
+                    valor_max = float(config.valor_max)
+                    valor = round(random.uniform(valor_min, valor_max), 2)
+                    
+                    data = {
+                        "sensor_id": sensor.id,
+                        "valor": valor,
+                    }
+                    
+                    await websocket.send(json.dumps(data))
+                    print(f"📡 Enviando datos: {data}")
+                    
+                    await guardar_medicion(sensor, valor)
+                else:
+                    print(f"⚠️ El sensor {sensor.id} no tiene configuración asignada.")
+            await asyncio.sleep(10)
 
-async def actualizar_sensores():
-    """Actualiza los valores de los sensores y envía notificación WebSocket"""
-    sensores = Sensor.objects.all()
-
-    for sensor in sensores:
-        sensor.valor_min = random.uniform(0.0, 50.0)
-        sensor.valor_max = random.uniform(50.0, 100.0)
-        sensor.save()
-        print(f"🔴 Sensor {sensor.id} actualizado")
-
-        # Enviar datos al WebSocket
-        await enviar_websocket(sensor.id, sensor.valor_min, sensor.valor_max)
-
-if __name__ == "__main__":
-    asyncio.run(actualizar_sensores())
+def run():
+    print("Ejecutando script de actualización de sensores...")
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(send_random_data())

@@ -73,12 +73,16 @@ from apps.Trazabilidad.routers.PlagaRouter import PlagaRouter
 from apps.Trazabilidad.routers.SemilleroRouter import SemilleroRouter
 from apps.Trazabilidad.routers.Tipo_EspecieRouter import Tipo_EspecieRouter
 from apps.Trazabilidad.routers.Tipo_PlagaRouter import Tipo_PlagaRouter
+#Usuario
+from apps.Users.routers.UsuarioRouter import UsuarioRouter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #URLs de JWT
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # URLs de usuario
+    path('api/', include(UsuarioRouter.urls)),
     #URLs de Swagger
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

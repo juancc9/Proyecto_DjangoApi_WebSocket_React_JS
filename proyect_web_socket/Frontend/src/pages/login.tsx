@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Input } from '@heroui/react';
-import { title } from '@/components/primitives';
-import DefaultLayout from '@/layouts/default';
-import Label from '@/components/Label';
 import { toast } from 'react-toastify';
+import Label from '@/components/Label';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function LoginForm() {
+  const navigate = useNavigate(); // 🔹 Hook de React Router
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -21,7 +21,6 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting form...');
     try {
       const response = await fetch('http://127.0.0.1:8000/api/token/', {
         method: 'POST',
@@ -31,29 +30,24 @@ export default function LoginForm() {
         body: JSON.stringify(formData),
       });
 
-      console.log('Response status:', response.status);
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.access);
         toast.success('Inicio de sesión exitoso');
+        navigate('/index'); // 🔹 Redirige al Dashboard
       } else {
-        const data = await response.json();
-        console.log('Error data:', data);
-        toast.error(`Error en el inicio de sesión: ${data.error || 'Credenciales incorrectas'}`);
+        toast.error('Credenciales incorrectas');
       }
     } catch (error) {
-      console.error('Error:', error);
       toast.error('Error en el inicio de sesión');
     }
   };
 
   return (
-    <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Iniciar Sesión</h1>
-        </div>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
+    <section className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-lg">
+        <h1 className="text-2xl font-bold text-center mb-4">Iniciar Sesión</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div>
             <Label htmlFor="username">Nombre de usuario</Label>
             <Input
@@ -76,9 +70,9 @@ export default function LoginForm() {
               placeholder="Contraseña"
             />
           </div>
-          <Button type="submit">Iniciar Sesión</Button>
+          <Button type="submit" className="w-full">Iniciar Sesión</Button>
         </form>
-      </section>
-    </DefaultLayout>
+      </div>
+    </section>
   );
 }

@@ -9,6 +9,7 @@ C:\Program Files\Memurai\
 
 ejecutar server:
 daphne -p 8000 APIRest.asgi:application
+
 python actualizador.py
 python script\actualizador.py
 
@@ -29,7 +30,7 @@ VALUES ('Sensor', 'Digital', 'Kg', 'Tomate', '01', 02, 0.5);
 
 
 
-
+PRUEBA MODEL
 from django.db import models
 
 class Sensor_iot(models.Model):
@@ -93,7 +94,11 @@ python ruta/del/script.py
 python manage.py runscript nombre_del_script
 
 
+CAMPOS DEL USER:
 
-
+username
+identificacion
+email
+password
 
 

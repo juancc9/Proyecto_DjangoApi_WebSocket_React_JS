@@ -386,6 +386,14 @@
         "documentation": {}
     },
     {
+        "label": "UsuarioRouter",
+        "importPath": "apps.Users.routers.UsuarioRouter",
+        "description": "apps.Users.routers.UsuarioRouter",
+        "isExtraImport": true,
+        "detail": "apps.Users.routers.UsuarioRouter",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -1115,11 +1123,11 @@
         "documentation": {}
     },
     {
-        "label": "ModelSerializer",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
         "isExtraImport": true,
-        "detail": "rest_framework.serializers",
+        "detail": "rest_framework.routers",
         "documentation": {}
     },
     {
@@ -1312,6 +1320,30 @@
         "description": "rest_framework.serializers",
         "isExtraImport": true,
         "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
         "documentation": {}
     },
     {
@@ -1604,6 +1636,14 @@
     },
     {
         "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticatedOrReadOnly",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -1884,7 +1924,23 @@
         "documentation": {}
     },
     {
+        "label": "Configuracion",
+        "importPath": "apps.IoT.models",
+        "description": "apps.IoT.models",
+        "isExtraImport": true,
+        "detail": "apps.IoT.models",
+        "documentation": {}
+    },
+    {
         "label": "async_to_sync",
+        "importPath": "asgiref.sync",
+        "description": "asgiref.sync",
+        "isExtraImport": true,
+        "detail": "asgiref.sync",
+        "documentation": {}
+    },
+    {
+        "label": "sync_to_async",
         "importPath": "asgiref.sync",
         "description": "asgiref.sync",
         "isExtraImport": true,
@@ -1961,6 +2017,14 @@
         "documentation": {}
     },
     {
+        "label": "now",
+        "importPath": "django.utils.timezone",
+        "description": "django.utils.timezone",
+        "isExtraImport": true,
+        "detail": "django.utils.timezone",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -2000,14 +2064,6 @@
         "description": "django.contrib.auth.models",
         "isExtraImport": true,
         "detail": "django.contrib.auth.models",
-        "documentation": {}
-    },
-    {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
-        "isExtraImport": true,
-        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -2204,7 +2260,7 @@
         "kind": 5,
         "importPath": "APIRest.settings",
         "description": "APIRest.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nSIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nREST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nSIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=720),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}",
         "detail": "APIRest.settings",
         "documentation": {}
     },
@@ -2213,7 +2269,7 @@
         "kind": 5,
         "importPath": "APIRest.settings",
         "description": "APIRest.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nSIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}\nAUTH_USER_MODEL = 'Users.Usuario'",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_AUTHENTICATION_CLASSES': (\n        'rest_framework_simplejwt.authentication.JWTAuthentication',\n    )\n}\nSIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=720),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}\nAUTH_USER_MODEL = 'Users.Usuario'",
         "detail": "APIRest.settings",
         "documentation": {}
     },
@@ -2222,7 +2278,7 @@
         "kind": 5,
         "importPath": "APIRest.settings",
         "description": "APIRest.settings",
-        "peekOfCode": "SIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=60),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}\nAUTH_USER_MODEL = 'Users.Usuario'\nASGI_APPLICATION = \"APIRest.asgi.application\"\nCHANNEL_LAYERS = {\n    \"default\": {\n        \"BACKEND\": \"channels.layers.InMemoryChannelLayer\",  \n    },",
+        "peekOfCode": "SIMPLE_JWT = {\n   'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=720),\n   'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7), \n}\nAUTH_USER_MODEL = 'Users.Usuario'\nASGI_APPLICATION = \"APIRest.asgi.application\"\nCHANNEL_LAYERS = {\n    \"default\": {\n        \"BACKEND\": \"channels.layers.InMemoryChannelLayer\",  \n    },",
         "detail": "APIRest.settings",
         "documentation": {}
     },
@@ -2267,7 +2323,7 @@
         "kind": 5,
         "importPath": "APIRest.urls",
         "description": "APIRest.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    #URLs de JWT\n    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n    #URLs de Swagger\n    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),\n    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),\n    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),\n    #Routers de las aplicaciones",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    #URLs de JWT\n    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n    # URLs de usuario\n    path('api/', include(UsuarioRouter.urls)),\n    #URLs de Swagger\n    path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),\n    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),",
         "detail": "APIRest.urls",
         "documentation": {}
     },
@@ -2879,7 +2935,7 @@
         "kind": 2,
         "importPath": "apps.script.actualizador",
         "description": "apps.script.actualizador",
-        "peekOfCode": "def obtener_sensores():\n    print(\"Obteniendo sensores\")\n    \"\"\" Obtiene todos los sensores registrados en la base de datos \"\"\"\n    return list(Sensor.objects.all())\n@sync_to_async\ndef guardar_medicion(sensor, valor):\n    print(\"Guardando medicion\")\n    \"\"\" Guarda el valor medido en el sensor \"\"\"\n    sensor.medicion = valor\n    sensor.save()",
+        "peekOfCode": "def obtener_sensores():\n    print(\"Obteniendo sensores...\")\n    return list(Sensor.objects.select_related(\"fk_configuracion\").all())\n@sync_to_async\ndef guardar_medicion(sensor, valor):\n    print(f\"Guardando medición para el sensor {sensor.id}: {valor}\")\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():",
         "detail": "apps.script.actualizador",
         "documentation": {}
     },
@@ -2888,7 +2944,7 @@
         "kind": 2,
         "importPath": "apps.script.actualizador",
         "description": "apps.script.actualizador",
-        "peekOfCode": "def guardar_medicion(sensor, valor):\n    print(\"Guardando medicion\")\n    \"\"\" Guarda el valor medido en el sensor \"\"\"\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():\n    print(\"Enviando datos\")\n    \"\"\" Simula el envío de datos de sensores a WebSockets \"\"\"\n    uri = \"ws://localhost:8000/ws/sensores/\"",
+        "peekOfCode": "def guardar_medicion(sensor, valor):\n    print(f\"Guardando medición para el sensor {sensor.id}: {valor}\")\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():\n    print(\"Enviando datos a WebSocket...\")\n    uri = \"ws://localhost:8000/ws/sensores/\"\n    async with websockets.connect(uri) as websocket:\n        while True:",
         "detail": "apps.script.actualizador",
         "documentation": {}
     },
@@ -2897,7 +2953,16 @@
         "kind": 2,
         "importPath": "apps.script.actualizador",
         "description": "apps.script.actualizador",
-        "peekOfCode": "def run():\n    print(\"Ejecucion del script\")\n    \"\"\" Ejecuta el simulador correctamente con Django \"\"\"\n    loop = asyncio.get_event_loop()\n    loop.run_until_complete(send_random_data())",
+        "peekOfCode": "def run():\n    print(\"Ejecutando script de actualización de sensores...\")\n    loop = asyncio.get_event_loop()\n    loop.run_until_complete(send_random_data())",
+        "detail": "apps.script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "apps.script.actualizador",
+        "description": "apps.script.actualizador",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(\"APIRest\")))\nsys.path.append(BASE_DIR)\n# Configurar Django\nos.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"APIRest.settings\")\ndjango.setup()\nfrom apps.IoT.models import Sensor\nfrom apps.IoT.models import Configuracion\n@sync_to_async\ndef obtener_sensores():\n    print(\"Obteniendo sensores...\")",
         "detail": "apps.script.actualizador",
         "documentation": {}
     },
@@ -3406,6 +3471,24 @@
         "documentation": {}
     },
     {
+        "label": "UsuarioSerializer",
+        "kind": 6,
+        "importPath": "apps.Users.serializers.userSerializer",
+        "description": "apps.Users.serializers.userSerializer",
+        "peekOfCode": "class UsuarioSerializer(ModelSerializer):\n    class Meta:\n        model = Usuario\n        fields ='__all__'",
+        "detail": "apps.Users.serializers.userSerializer",
+        "documentation": {}
+    },
+    {
+        "label": "UsuarioViews",
+        "kind": 6,
+        "importPath": "apps.Users.views.UsuarioViews",
+        "description": "apps.Users.views.UsuarioViews",
+        "peekOfCode": "class UsuarioViews(ModelViewSet):\n    queryset= Usuario.objects.all()\n    serializer_class =UsuarioSerializer\n    permission_classes = [IsAuthenticatedOrReadOnly]",
+        "detail": "apps.Users.views.UsuarioViews",
+        "documentation": {}
+    },
+    {
         "label": "UsersConfig",
         "kind": 6,
         "importPath": "apps.Users.apps",
@@ -3442,11 +3525,38 @@
         "documentation": {}
     },
     {
-        "label": "actualizar_sensores",
+        "label": "obtener_sensores",
         "kind": 2,
         "importPath": "script.actualizador",
         "description": "script.actualizador",
-        "peekOfCode": "def actualizar_sensores():\n    sensores = Sensor.objects.all()\n    for sensor in sensores:\n        sensor.valor_min = random.uniform(0.0, 50.0)  # Genera un valor aleatorio entre 0.0 y 50.0\n        sensor.valor_max = random.uniform(50.0, 100.0)  # Genera un valor aleatorio entre 50.0 y 100.0\n        sensor.save()\n        print(f\"Sensor {sensor.nombre_sensor} actualizado: valor_min={sensor.valor_min}, valor_max={sensor.valor_max}\")\nif __name__ == \"__main__\":\n    actualizar_sensores()",
+        "peekOfCode": "def obtener_sensores():\n    print(\"Obteniendo sensores...\")\n    return list(Sensor.objects.select_related(\"fk_configuracion\").all())\n@sync_to_async\ndef guardar_medicion(sensor, valor):\n    print(f\"Guardando medición para el sensor {sensor.id}: {valor}\")\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():",
+        "detail": "script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "guardar_medicion",
+        "kind": 2,
+        "importPath": "script.actualizador",
+        "description": "script.actualizador",
+        "peekOfCode": "def guardar_medicion(sensor, valor):\n    print(f\"Guardando medición para el sensor {sensor.id}: {valor}\")\n    sensor.medicion = valor\n    sensor.save()\n    return sensor\nasync def send_random_data():\n    print(\"Enviando datos a WebSocket...\")\n    uri = \"ws://localhost:8000/ws/sensores/\"\n    async with websockets.connect(uri) as websocket:\n        while True:",
+        "detail": "script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "run",
+        "kind": 2,
+        "importPath": "script.actualizador",
+        "description": "script.actualizador",
+        "peekOfCode": "def run():\n    print(\"Ejecutando script de actualización de sensores...\")\n    loop = asyncio.get_event_loop()\n    loop.run_until_complete(send_random_data())",
+        "detail": "script.actualizador",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "script.actualizador",
+        "description": "script.actualizador",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(\"APIRest\")))\nsys.path.append(BASE_DIR)\n# Configurar Django\nos.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"APIRest.settings\")\ndjango.setup()\nfrom apps.IoT.models import Sensor\nfrom apps.IoT.models import Configuracion\n@sync_to_async\ndef obtener_sensores():\n    print(\"Obteniendo sensores...\")",
         "detail": "script.actualizador",
         "documentation": {}
     },
